@@ -4,55 +4,62 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../css/register.css" />
   <title>Register</title>
 </head>
 
 <body>
-  <h1>YouTube &trade;</h1>
-  <nav>
-    <ul>
-      <li><a href="index.html">CYC</a></li>
-      <li><a href="login.html">Login</a></li>
-      <li><a href="register.html">Register</a></li>
-      <li><a href="postvideo.html">Post</a></li>
-      <li><a href="viewpost.html">View</a></li>
-    </ul>
-  </nav>
-  <section>
-    <h2>Registor</h2>
-    <form method="post" action="login.html" id="loginForm">
-      <label for="username">Username:</label>
-      <input type="text" id="username" name="username" required />
+  <div class="topBar">
+    <Header>
+      <a href="index.html">
+        <img src="../assets/icon/Youtube.png" alt="Youtube">
+        <h1>YouTube </h1>
+      </a>
+    </Header>
+    <section class="searchKeyWords">
+      <input type="text" placeholder="Search..." required />
+      <img src="../assets/icon/SearchImage.png" alt="Youtube">
+    </section>
+    <nav class="navbar">
+      <a href="index.html" class="navLink">Home</a>
+      <a href="login.html" class="navLink"><img src="../assets/icon/Login.svg" alt="loginLogo">
+        Login</a>
+      <a href="register.html" class="navLink">Register</a>
+      <a href="postvideo.html" class="navLink">Post</a>
+      <a href="viewpost.html" class="navLink"> viewPost</a>
+    </nav>
+  </div>
+  <article class="container">
+    <section class="signUp">
+      <form action="" class="signUpForm">
+        <h2 class="title">Sign up</h2>
+        <div class="inputField">
+          <img src="../assets/icon/User.svg" alt="user">
+          <input type="text" placeholder="Username">
+        </div>
+        <div class="inputField">
+          <img src="../assets/icon/Email.svg" alt="Eamil">
+          <input type="email" placeholder="Email">
+        </div>
+        <div class="inputField">
+          <img src="../assets/icon/Lock.svg" alt="Lock">
+          <input type="password" placeholder="Password">
+        </div>
+        <div class="inputFieldAge">
+          <label for="age">Are you 13 years or older?</label>
+          <input type="checkbox" id="age" name="age" required />
+        </div>
+        <div class="inputFieldAge">
+          <label for="TOS and Privacy rules">
+            <a href="#">TOS and Privacy rules</a></label>
+          <input type="checkbox" id="age" name="age" required />
+        </div>
 
-      <label for="password">Password:</label>
-      <input type="password" id="password" name="password" required />
-
-      <label for="password"> Confirm Password:</label>
-      <input type="password" id="password" name="password" required />
-
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required />
-
-      <label for="age">Are you 13 years or older?</label>
-      <input type="checkbox" id="age" name="age" required />
-
-      <label for="TOS and Privacy rules">
-        <a href="#">TOS and Privacy rules</a></label>
-      <input type="checkbox" id="age" name="age" required />
-
-      <input type="submit" value="Submit" />
-      <button type="reset">Clear</button>
-    </form>
-  </section>
-  <footer>
-    <p>&copy; 2024 Your Application Name. All Rights Reserved.</p>
-    <ul>
-      <li><a href="https://www.linkedin.com/in/anshaj-vats/">LinkdIn</a></li>
-      <li><a href="https://github.com/AnshajVats">Github</a></li>
-      <li><a href="login.html">Contact</a></li>
-      <li>avats@sfsu.edu</li>
-    </ul>
-  </footer>
+        <input type="submit" value="Sign up" class="btn">
+        <p>Already have an account? <a href="login.html" class="accountText" id="sign-in-link">Sign in</a></p>
+      </form>
+    </section>
+  </article>
 </body>
 
 </html>

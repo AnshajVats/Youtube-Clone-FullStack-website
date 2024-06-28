@@ -4,52 +4,117 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../css/viewPost.css" />
   <title>Post</title>
 </head>
 
 <body>
-  <Header>
-    <h1>YouTube&trade;
-  </Header>
-  <nav>
-    <ul>
-      <li><a href="index.html">CYC</a></li>
-      <li><a href="login.html">Login</a></li>
-      <li><a href="register.html">Register</a></li>
-      <li><a href="postvideo.html">Post</a></li>
-      <li><a href="viewpost.html">View</a></li>
-    </ul>
-  </nav>
-  <section>
-    <header>
-      <h2>Post</h2>
-    </header>
-    <article>
-      <video controls>
-        <source src="movie.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-      <h3>Post Title</h3>
-      <p>Post Author</p>
-      <p>Post Creation Time</p>
-      <h3>Comments</h3>
-      <div>
-        <p>Comment Author </p>
-        <p>Comment Creation Time</p>
-        <p>Comment</p>
+  <div class="topBar">
+    <Header>
+      <a href="index.html">
+        <img src="../assets/icon/Youtube.png" alt="Youtube">
+        <h1>YouTube </h1>
+      </a>
+    </Header>
+    <section class="searchKeyWords">
+      <input type="text" placeholder="Search..." required />
+      <img src="../assets/icon/SearchImage.png" alt="Youtube">
+    </section>
+    <nav class="navbar">
+      <a href="index.html" class="navLink">Home</a>
+      <a href="login.html" class="navLink"><img src="../assets/icon/Login.svg" alt="loginLogo">
+        Login</a>
+      <a href="register.html" class="navLink">Register</a>
+      <a href="postvideo.html" class="navLink">Post</a>
+      <a href="viewpost.html" class="navLink"> viewPost</a>
+    </nav>
+  </div>
+  <article class="playVideo">
+    <img src="../assets/tumbnails/PlaceHolderForVideo.png" alt="VideoPlayer">
+    <div class="videoDetails">
+      <h1>How to live life to the fullest</h1>
+      <div class="channelName">
+        <div class="channelIfo">
+          <img src="../assets/Logo/FirstLogo.png" alt="The channel logo" />
+          <h2>Channel name</h2>
+        </div>
+        <div class="buttonContainer">
+          <button id="likeToggle" type="submit">
+            <img src="../assets/icon/Like.svg" alt="Like Svg">
+            <p>100</p>
+          </button>
+        </div>
+        <div class="shareContianer">
+          <button type="submit" id="shareToggle">
+            <img src="../assets/icon/Share.svg" alt="Share Svg">
+            <p>Share</p>
+          </button>
+        </div>
+
       </div>
-      <div>
-        <p>Comment Author </p>
-        <p>Comment Creation Time</p>
-        <p>Comment</p>
+      <div class="videoDescription">
+        <p id="videoDescriptionFirstParagragh">2M Views &nbsp &nbsp 3 Months Ago</p>
+        <p>Published on 12th June 2020</p>
+        <p>Category: LifeStyle</p>
+        <p>Tags: #Life #Happiness #Motivation</p>
       </div>
-      <div>
-        <p>Comment Author </p>
-        <p>Comment Creation Time</p>
-        <p>Comment</p>
+    </div>
+  </article>
+  <div class="commentSection">
+    <h2>2,329 Comments</h2>
+    <div class="comment">
+      <div class="author">
+        <img src="../assets/Logo/FirstLogo.png" alt="comment logo" />
       </div>
-    </article>
-  </section>
+      <div class="commentDetails">
+        <h3>Author Name</h3>
+        <p class="commentText">Comment: This is a great video</p>
+        <div class="commentActions">
+          <p>478 Likes</p>
+          <p>Reply</p>
+        </div>
+      </div>
+    </div>
+    <div class="comment">
+      <div class="author">
+        <img src="../assets/Logo/FirstLogo.png" alt="comment logo" />
+      </div>
+      <div class="commentDetails">
+        <h3>Author Name</h3>
+        <p class="commentText">Comment: This is a great video</p>
+        <div class="commentActions">
+          <p>478 Likes</p>
+          <p>Reply</p>
+        </div>
+      </div>
+    </div>
+    <div class="comment">
+      <div class="author">
+        <img src="../assets/Logo/FirstLogo.png" alt="comment logo" />
+      </div>
+      <div class="commentDetails">
+        <h3>Author Name</h3>
+        <p class="commentText">Comment: This is a great video</p>
+        <div class="commentActions">
+          <p>478 Likes</p>
+          <p>Reply</p>
+        </div>
+      </div>
+    </div>
+    <div class="comment">
+      <div class="author">
+        <img src="../assets/Logo/FirstLogo.png" alt="comment logo" />
+      </div>
+      <div class="commentDetails">
+        <h3>Author Name</h3>
+        <p class="commentText">Comment: This is a great video</p>
+        <div class="commentActions">
+          <p>478 Likes</p>
+          <p>Reply</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
 </body>
 

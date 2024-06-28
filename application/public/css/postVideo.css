@@ -1,0 +1,208 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: black;
+    color: white;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    color: white;
+}
+
+.topBar {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 10px;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header a {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+header img {
+    width: 50px;
+    height: 50px;
+}
+
+header h1 {
+    font-size: 30px;
+    color: whitesmoke;
+    padding-top: 5px;
+}
+
+.searchKeyWords {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-column: span 2;
+}
+
+.searchKeyWords input {
+    width: 300px;
+    height: 30px;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    border: none;
+    padding-left: 10px;
+    font-size: 16px;
+    color: white;
+    background-color: #333;
+    outline: none;
+}
+
+.searchKeyWords img {
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    background-color: black;
+    color: white;
+    padding: 10px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: inherit;
+    margin: 0 10px;
+    font-size: 20px;
+}
+
+.navbar a:hover {
+    color: #ccc;
+}
+
+/* Style the grid layout containing forms */
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+/* Style the forms and hide the sign-up form initially */
+.postVideoForm {
+    grid-column: 1 / 2;
+    grid-row: 1/2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 100px;
+}
+
+/* Style form titles, input fields, icons, and buttons */
+.title {
+    font-size: 35px;
+    color: #999;
+    margin-bottom: 10px;
+}
+
+.inputField {
+    width: 280px;
+    height: 50px;
+    border-bottom: 2px solid #999;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+}
+
+
+
+.inputField input {
+    flex: 5;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 18px;
+    color: #f0f0f0;
+    font-weight: 600;
+    margin-left: 5px;
+}
+
+.uploadVideo {
+    margin: 10px 0;
+}
+
+.uploadVideo input[type="file"] {
+    display: none;
+}
+
+.fileUploder {
+    display: inline-block;
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #999;
+    color: #fff;
+    border: 2px solid #999;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 20px;
+}
+
+.fileUploder:hover {
+    background-color: #666;
+    border-color: #666;
+}
+
+.inputFieldPolicy {
+    width: 280px;
+    height: 50px;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    border-bottom: none;
+}
+
+.inputFieldPolicy label {
+    flex: 5;
+    font-size: 18px;
+    color: #f0f0f0;
+    font-weight: 600;
+}
+
+.inputFieldPolicy input {
+    flex: 1;
+    margin-left: 10px;
+}
+
+/* Style paragraphs and links */
+p,
+a {
+    font-size: 14px;
+    color: #999;
+}
+
+.btn {
+    width: 130px;
+    height: 40px;
+    outline: none;
+    border: 2px solid #999;
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 20px 0;
+    color: #999;
+    background-color: #333;
+    border-radius: 20px;
+}
+
+.btn:hover {
+    color: #333;
+    border: none;
+    background: #999;
+}

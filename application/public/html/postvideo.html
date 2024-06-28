@@ -4,48 +4,61 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../css/postvideo.css" />
   <title>Post</title>
 </head>
 
 <body>
-  <h1>YouTube &trade;</h1>
-  <nav>
-    <ul>
-      <li><a href="index.html">CYC</a></li>
-      <li><a href="login.html">Login</a></li>
-      <li><a href="register.html">Register</a></li>
-      <li><a href="postvideo.html">Post</a></li>
-      <li><a href="viewpost.html">View</a></li>
-    </ul>
-  </nav>
-  <section>
-    <form action="viewpost.html">
-      <label for="title">Title:</label>
-      <input type="text" id="title" name="title" required />
+  <div class="topBar">
+    <Header>
+      <a href="index.html">
+        <img src="../assets/icon/Youtube.png" alt="Youtube">
+        <h1>YouTube </h1>
+      </a>
+    </Header>
+    <section class="searchKeyWords">
+      <input type="text" placeholder="Search..." required />
+      <img src="../assets/icon/SearchImage.png" alt="Youtube">
+    </section>
+    <nav class="navbar">
+      <a href="index.html" class="navLink">Home</a>
+      <a href="login.html" class="navLink"><img src="../assets/icon/Login.svg" alt="loginLogo">
+        Login</a>
+      <a href="register.html" class="navLink">Register</a>
+      <a href="postvideo.html" class="navLink">Post</a>
+      <a href="viewpost.html" class="navLink"> viewPost</a>
+    </nav>
+  </div>
+  <article class="container">
+    <section class="postVideo">
+      <form class="postVideoForm">
+        <h2 class="title">Upload Video</h2>
 
-      <label for="description">Description:</label>
-      <input type="text" id="description" name="description" required />
+        <div class="inputField">
+          <label for="title">Title:</label>
+          <input type="text" id="title" name="title" required />
+        </div>
+        <div class="inputField">
+          <label for="description">Description:</label>
+          <input type="text" id="description" name="description" required />
+        </div>
+        <div class="uploadVideo">
+          <label for="video" class="fileUploder">Upload Video</label>
+          <input type="file" id="video" name="video" required />
+        </div>
 
-      <label for="video">Video:</label>
-      <input type="file" id="video" name="video" required />
+        <div class="inputFieldPolicy">
+          <label for="Acceptable Use Policy for uploading videos.
+    "><a href="#">Acceptable Use Policy for uploading videos </a></label>
+          <input type="checkbox" id="age" name="age" required />
 
-      <label for="Acceptable Use Policy for uploading videos.
-"><a href="#">Acceptable Use Policy for uploading videos </a></label>
-      <input type="checkbox" id="age" name="age" required />
+        </div>
 
-      <input type="submit" value="Post" />
-      <button type="reset">Clear</button>
-    </form>
-  </section>
-  <footer>
-    <p>&copy; 2024 Your Application Name. All Rights Reserved.</p>
-    <ul>
-      <li><a href="https://www.linkedin.com/in/anshaj-vats/">LinkdIn</a></li>
-      <li><a href="https://github.com/AnshajVats">Github</a></li>
-      <li><a href="login.html">Contact</a></li>
-      <li>avats@sfsu.edu</li>
-    </ul>
-  </footer>
+
+        <input type="submit" value="Post" class="btn">
+      </form>
+    </section>
+  </article>
 </body>
 
 </html>
