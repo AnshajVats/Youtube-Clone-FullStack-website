@@ -4,6 +4,7 @@
     box-sizing: border-box;
     background-color: black;
     color: white;
+    font-family: "Poppins", sans-serif;
 }
 
 body {
@@ -120,6 +121,12 @@ header h1 {
     align-items: center;
 }
 
+.inputField label {
+    flex: 5;
+    font-size: 18px;
+    color: #f0f0f0;
+    font-weight: 600;
+}
 
 
 .inputField input {
