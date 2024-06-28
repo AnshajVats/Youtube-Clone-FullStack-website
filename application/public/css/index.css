@@ -2,13 +2,14 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: black;
+    font-family: "Poppins", sans-serif;
 }
 
 body {
     height: full;
     width: full;
     color: white;
+    background-color: black;
 }
 
 .topBar {
@@ -43,6 +44,18 @@ header h1 {
     padding-top: 5px;
 
 
+}
+
+.sideNav {
+    position: absolute;
+    top: 50px;
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    background-color: #333;
+    width: 90px;
+    overflow: hidden;
+    box-shadow: 0 20px rgba(0, 0, 0, 0.5);
 }
 
 .searchKeyWords {
@@ -91,6 +104,9 @@ header h1 {
 .navbar a:hover {
     color: #ccc;
 }
+
+
+
 
 .content {
     background-color: #f9f9f9;
