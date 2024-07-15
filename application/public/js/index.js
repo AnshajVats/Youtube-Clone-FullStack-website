@@ -1,5 +1,4 @@
 let totalPhotoCount = 0;
-let check = false;
 
 function updatePhotoCount() {
     totalPhotoCount--;
@@ -9,11 +8,6 @@ function updatePhotoCount() {
 function fadeOut(ev) {
     let div = ev.currentTarget;
     
-    if (check === 'true') {
-        return;
-    }
-    
-    check = 'true';
     div.removeEventListener('click', fadeOut);
     let opacity = 1;
     let timer =  setInterval(function() {
@@ -22,8 +16,7 @@ function fadeOut(ev) {
         if (opacity <= 0.1) {
             div.remove();
             clearInterval(timer);
-            updatePhotoCount();
-            check = false;
+            document.getElementById("photo_count").innerHTML = document.getElementById("main_content").childElementCount;    
         } 
     },50);
 }
