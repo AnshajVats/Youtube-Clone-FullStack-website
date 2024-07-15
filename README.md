@@ -10,9 +10,9 @@ Please follow the instructions below and fill in the information requested when 
 
 |               | Information   |
 |:-------------:|:-------------:|
-| Student Name  | Anshaj Vats     |
-| Student ID    | 923760991       |
-| Student Email | avats@sfsu.edu    |
+| Student Name  | Anshaj Vats    |
+| Student ID    | 923760991      |
+| Student Email | avats@sfsu.edu   |
 
 
 
