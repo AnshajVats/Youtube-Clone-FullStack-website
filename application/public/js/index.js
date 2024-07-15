@@ -1,4 +1,5 @@
 let totalPhotoCount = 0;
+let check = false;
 
 function updatePhotoCount() {
     totalPhotoCount--;
@@ -7,21 +8,24 @@ function updatePhotoCount() {
 
 function fadeOut(ev) {
     let div = ev.currentTarget;
+    
+    if (check === 'true') {
+        return;
+    }
+    
+    check = 'true';
+    div.removeEventListener('click', fadeOut);
     let opacity = 1;
     let timer =  setInterval(function() {
+        opacity -= 0.1;
         div.style.opacity = opacity;
         if (opacity <= 0.1) {
-        opacity -= 0.1;
-        div.remove();
-        clearInterval(timer);
-        updatePhotoCount();
-        } else {
-            opacity -= 0.1;
-            div.style.opacity = opacity;
-        }
-
+            div.remove();
+            clearInterval(timer);
+            updatePhotoCount();
+            check = false;
+        } 
     },50);
-
 }
 
 function buildCardJSAPI(data) {
@@ -53,7 +57,7 @@ fetch("https://jsonplaceholder.typicode.com/albums/2/photos")
     photos.forEach(function(photo){
         container.appendChild(buildCardJSAPI(photo));
     });
-    document.getElementById("photo_count").innerHTML = totalPhotoCount;
+    document.getElementById("photo_count").innerHTML = photos.length;
 })
 .catch(function(err) {
     console.log(err);
