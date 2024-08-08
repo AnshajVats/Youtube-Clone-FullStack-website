@@ -1,0 +1,93 @@
+<article class="playVideo">
+  <video id="mainVideo" controls>
+    <source src="/{{currentPost.video}}" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+  <div class="videoDetails">
+    <h1>{{currentPost.title}}</h1>
+    <div class="channelName">
+      <div class="channelIfo">
+        <img src="/public/assets/Logo/FirstLogo.png" alt="The channel logo" />
+        <h2>{{currentPost.username}}</h2>
+      </div>
+      <div class="buttonContainer">
+        <button id="likeToggle" type="submit">
+          <img src="/public/assets/icon/Like.svg" alt="Like Svg">
+          <p>100</p>
+        </button>
+      </div>
+      <div class="shareContianer">
+        <button type="submit" id="shareToggle">
+          <img src="/public/assets/icon/Share.svg" alt="Share Svg">
+          <p>Share</p>
+        </button>
+      </div>
+
+    </div>
+    <div class="videoDescription">
+      <p id="videoDescriptionFirstParagragh">2M Views</p>
+      <p>{{currentPost.created_at}}</p>
+      <p>Category: LifeStyle</p>
+      <p>{{currentPost.description}}</p>
+    </div>
+  </div>
+</article>
+<div class="commentSection">
+  <h2>2,329 Comments</h2>
+  <div class="comment">
+    <div class="author">
+      <img src="/public/assets/Logo/FirstLogo.png" alt="comment logo" />
+    </div>
+    <div class="commentDetails">
+      <h3>Author Name</h3>
+      <p class="commentText">Comment: This is a great video</p>
+      <div class="commentActions">
+        <p>478 Likes</p>
+        <p>Reply</p>
+      </div>
+    </div>
+  </div>
+  <div class="comment">
+    <div class="author">
+      <img src="/public/assets/Logo/FirstLogo.png" alt="comment logo" />
+    </div>
+    <div class="commentDetails">
+      <h3>Author Name</h3>
+      <p class="commentText">Comment: This is a great video</p>
+      <div class="commentActions">
+        <p>478 Likes</p>
+        <p>Reply</p>
+      </div>
+    </div>
+  </div>
+  <div class="comment">
+    <div class="author">
+      <img src="/public/assets/Logo/FirstLogo.png" alt="comment logo" />
+    </div>
+    <div class="commentDetails">
+      <h3>Author Name</h3>
+      <p class="commentText">Comment: This is a great video</p>
+      <div class="commentActions">
+        <p>478 Likes</p>
+        <p>Reply</p>
+      </div>
+    </div>
+  </div>
+  <div class="comment">
+    <div class="author">
+      <img src="/public/assets/Logo/FirstLogo.png" alt="comment logo" />
+    </div>
+    <div class="commentDetails">
+      <h3>Author Name</h3>
+      <p class="commentText">Comment: This is a great video</p>
+      <div class="commentActions">
+        <p>478 Likes</p>
+        <p>Reply</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+
+</html>

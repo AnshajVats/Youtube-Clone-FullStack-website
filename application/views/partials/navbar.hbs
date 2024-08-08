@@ -1,0 +1,10 @@
+<nav class="navbar">
+  <a href="/" class="navLink">Home</a>
+  {{#if this.isLogged}}
+    {{> userdropdown this}}
+  {{else}}
+    <a href="/login" class="navLink">Login</a>
+  {{/if}}
+  <a href="/register" class="navLink">Register</a>
+  <a href="/post" class="navLink">Post</a>
+</nav>

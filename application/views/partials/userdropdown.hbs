@@ -1,0 +1,9 @@
+<div class="user-dropdown">
+  <a href="#" class="user-dropdown-btn">Hi,{{user.username}}</a>
+  <div class="user-dropdown-content">
+    <a href="/users/{{user.userId}}">Profile</a>
+    <form action="/users/logout" method="post">
+      <button class="nav-items" type="submit">Log out</button>
+    </form>
+  </div>
+</div>

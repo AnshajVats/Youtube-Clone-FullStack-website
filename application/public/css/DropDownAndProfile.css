@@ -1,0 +1,96 @@
+.user-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.user-dropdown-btn {
+    color: white;
+    padding: 12px 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+    /* To keep it consistent with your design */
+}
+
+.user-dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: black;
+    min-width: 160px;
+    z-index: 1;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+.user-dropdown-content a,
+.user-dropdown-content button {
+    color: whitesmoke;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    background: none;
+    border: none;
+    text-align: left;
+    width: 100%;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: inherit;
+}
+
+.user-dropdown-content button {
+    width: 100%;
+    margin-left: 10px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.user-dropdown-content a:hover,
+.user-dropdown-content button:hover {
+    color: #4267b2;
+    background-color: rgba(66, 103, 178, 0.1);
+    /* Adding a slight background color change on hover */
+}
+
+.user-dropdown:hover .user-dropdown-content {
+    display: block;
+}
+
+/* Profile Page */
+.profile-container {
+    background-color: #000;
+    color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.profile-user-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.profile-avatar {
+    font-size: 50px;
+    margin-right: 20px;
+}
+
+.profile-username {
+    font-size: 24px;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.profile-email {
+    font-size: 16px;
+    color: #ccc;
+}
+
+.profile-container h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.profile-container section {
+    margin-top: 30px;
+}

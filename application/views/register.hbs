@@ -1,0 +1,36 @@
+<article class="container">
+  <section class="signUp">
+    <form class="signUpForm" method="POST" action="/users/register" enctype="application/x-www-form-urlencoded">
+      <h2 class="title">Sign up</h2>
+      <div class="inputField">
+        <img src="public/assets/icon/User.svg" alt="user">
+        <input type="text" placeholder="Username" name="username">
+      </div>
+      <div class="inputField">
+        <img src="/public/assets/icon/Email.svg" alt="Eamil">
+        <input type="email" placeholder="Email" name="email">
+      </div>
+      <div class="inputField">
+        <img src="/public/assets/icon/Lock.svg" alt="Lock">
+        <input type="text" placeholder="Password" name="password">
+      </div>
+      <div class="inputField">
+        <img src="/public/assets/icon/Lock.svg" alt="Lock">
+        <input type="text" placeholder=" Confirm Password" name="cpassword">
+      </div>
+      <div class="inputFieldAge">
+        <label for="age">Are you 13 years or older?</label>
+        <input type="checkbox" id="age" name="age" required />
+      </div>
+      <div class="inputFieldAge">
+        <label for="TOS and Privacy rules">
+          <a href="#">TOS and Privacy rules</a></label>
+        <input type="checkbox" id="age" name="tos" required />
+      </div>
+
+      <input type="submit" value="Sign up" class="btn">
+      <p>Already have an account? <a href="/login" class="accountText" id="sign-in-link">Sign in</a></p>
+    </form>
+  </section>
+</article>
+</body>

@@ -1,9 +1,33 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'CSC 317 App', name:"Anshaj vats" });
+router.get("/", function (req, res, next) {
+  res.render("index", {
+    title: "Youtube",
+    name: "Anshaj vats",
+    js: ["index.js"],
+    CSS: ["index.css"],
+  });
+});
+
+/* Get the Login page*/
+router.get("/login", function (req, res, next) {
+  res.render("login", { title: "Login", CSS: ["login.css"] });
+});
+
+/* Get the Register page */
+router.get("/register", function (req, res, next) {
+  res.render("register", { title: "Register", CSS: ["register.css"] });
+});
+
+/* Get the post */
+router.get("/post", function (req, res, next) {
+  res.render("postvideo", {
+    title: "Post",
+    CSS: ["postvideo.css"],
+    js: ["postVideo.js"],
+  });
 });
 
 module.exports = router;

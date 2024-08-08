@@ -1,0 +1,29 @@
+<article class="container">
+  <section class="postVideo">
+    <form class="postVideoForm" action="/post/create" method="POST" enctype="multipart/form-data">
+      <h2 class="title">Upload Video</h2>
+      <div class="inputField">
+        <label for="titleText">Title:</label>
+        <input type="text" id="title" name="title" required />
+      </div>
+      <div class="inputField">
+        <label for="description">Description:</label>
+        <input type="text" id="description" name="description" required />
+      </div>
+      <div class="uploadVideo">
+        <label for="video" class="fileUploder">Upload Video</label>
+        <input type="file" id="video" name="videoUpload" required onchange="changeBackgroundColor()"/>
+      </div>
+
+      <div class="inputFieldPolicy">
+        <label for="Acceptable Use Policy for uploading videos.">
+          <a href="#">Acceptable Use Policy for uploading videos </a></label>
+        <input type="checkbox" id="age" name="age" required />
+      </div>
+      <input type="submit" value="Post" class="btn">
+    </form>
+  </section>
+</article>
+</body>
+
+</html>
