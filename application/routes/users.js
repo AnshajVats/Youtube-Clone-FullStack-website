@@ -3,7 +3,13 @@ var router = express.Router();
 const bcrypt = require("bcrypt");
 const db = require("../conf/database");
 const { isLoggedIn, isMyProfile } = require("../middleware/auth");
-
+const {
+  checkUsername,
+  checkPassword,
+  checkEmail,
+  checkUsernameUnique,
+  checkEmailUnique,
+} = require("../middleware/validation");
 router.get("/", function (req, res, next) {
   //res.render('index', { title: 'Youtube', name:"Anshaj vats", js:['index.js'], CSS:['index.css']});
   res.end();
@@ -13,45 +19,36 @@ router.get("/", function (req, res, next) {
  * Registor User
  * localhost:3000/users/register
  */
-router.post("/register", async function (req, res, next) {
-  var { username, email, password, cpassword } = req.body;
-  try {
-    var [rows, fields] = await db.query(
-      "SELECT * FROM users WHERE username = ?",
-      [username]
-    );
-    if (rows?.length > 0) {
-      req.flash("error", "Username already exists");
-      return res.redirect("/register");
+router.post(
+  "/register",
+  checkUsername,
+  checkPassword,
+  checkEmail,
+  checkUsernameUnique,
+  checkEmailUnique,
+  async function (req, res, next) {
+    var { username, email, password, cpassword } = req.body;
+    try {
+      var hashPassword = await bcrypt.hash(password, 3);
+      var [resultObj, _] = await db.query(
+        "INSERT INTO users (username, email, password) VALUES (?, ?, ?)",
+        [username, email, hashPassword]
+      );
+      if (resultObj?.affectedRows == 1) {
+        console.log("User was created");
+        req.flash("success", "User registered successfully. Please log in.");
+        return res.redirect("/login");
+      } else {
+        console.log("User was not created");
+        req.flash("error", "Failed to register user. Please try again.");
+        res.redirect("/register");
+      }
+    } catch (error) {
+      console.log(error);
+      next(error);
     }
-    var [rows, fields] = await db.query("SELECT * FROM users WHERE email = ?", [
-      email,
-    ]);
-    if (rows?.length > 0) {
-      req.flash("error", "Email already exists");
-      return res.redirect("/register");
-    }
-
-    //all data is good
-    var hashPassword = await bcrypt.hash(password, 3);
-    var [resultObj, _] = await db.query(
-      "INSERT INTO users (username, email, password) VALUES (?, ?, ?)",
-      [username, email, hashPassword]
-    );
-    if (resultObj?.affectedRows == 1) {
-      console.log("User was created");
-      req.flash("success", "User registered successfully. Please log in.");
-      return res.redirect("/login");
-    } else {
-      console.log("User was not created");
-      req.flash("error", "Failed to register user. Please try again.");
-      res.redirect("/register");
-    }
-  } catch (error) {
-    console.log(error);
-    next(error);
   }
-});
+);
 
 /**
  * login User

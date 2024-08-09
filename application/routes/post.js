@@ -12,7 +12,7 @@ const storage = multer.diskStorage({
   filename: function (req, file, cb) {
     let fileExt = file.mimetype.split("/")[1];
     const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
-    cb(null, `${file.fieldname}- ${uniqueSuffix}.${fileExt}`);
+    cb(null, `${file.fieldname}-${uniqueSuffix}.${fileExt}`);
   },
 });
 
@@ -27,7 +27,7 @@ router.post(
     const userId = req.session.user.userId;
     console.log(userId);
     const { title, description } = req.body;
-    const { path, thumbail } = req.file;
+    const { path, thumbnail } = req.file;
     if (!title || !description || !path) {
       req.flash("error", "Post must have a title, description and video");
       return req.session.save((err) => {
@@ -37,8 +37,8 @@ router.post(
     }
     try {
       const [resultObj, _] = await db.query(
-        `INSERT INTO posts (title, description, video, tumbnail, fk_user_id) VALUES (?, ?, ?, ?, ?)`,
-        [title, description, path, thumbail, userId]
+        `INSERT INTO posts (title, description, video, thumbnail, fk_user_id) VALUES (?, ?, ?, ?, ?)`,
+        [title, description, path, thumbnail, userId]
       );
 
       if (resultObj?.affectedRows == 1) {
@@ -68,5 +68,12 @@ router.get("/:id(\\d+)", getPostById, function (req, res, next) {
     CSS: ["viewPost.css"],
   });
 });
+
+//localhost:3000/post/search?searchterm=term
+router.get("/search", function (req, res, next) {});
+
+router.post("/likes/:id(\\d+)", isLoggedIn, function (req, res, next) {});
+
+router.delete("/:id(\\d+)", async function (req, res, next) {});
 
 module.exports = router;
