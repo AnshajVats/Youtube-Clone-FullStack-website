@@ -65,7 +65,7 @@ header h1 {
     grid-column: span 2;
 }
 
-.searchKeyWords input {
+.searchfield {
     width: 300px;
     height: 30px;
     box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
@@ -80,7 +80,7 @@ header h1 {
     outline: none;
 }
 
-.searchKeyWords img {
+.searchImg {
     width: 20px;
     height: 20px;
     margin-left: 10px;

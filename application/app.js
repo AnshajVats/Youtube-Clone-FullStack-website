@@ -12,6 +12,7 @@ const flash = require("express-flash");
 const postRouter = require("./routes/post");
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
+const { time } = require("console");
 
 const sessionStore = new MySQLStore(
   {
@@ -32,6 +33,12 @@ app.engine(
     helpers: {
       nonEmptyObject: function (obj) {
         return obj && obj.constructor === Object && Object.keys(obj).length > 0;
+      },
+      formatDate: function (dataTimeString) {
+        return new Date(dataTimeString).toLocaleString("en", {
+          dateStyle: "short",
+          timeStyle: "short",
+        });
       },
     }, //adding new helpers to handlebars for extra functionality
   })

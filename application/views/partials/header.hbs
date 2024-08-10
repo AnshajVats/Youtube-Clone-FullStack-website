@@ -1,10 +1,20 @@
 <Header>
-    <a href="/">
-        <img src="/public/assets/icon/Youtube.png" alt="Youtube">
-        <h1>YouTube </h1>
-    </a>
+  <a href="/">
+    <img src="/public/assets/icon/Youtube.png" alt="Youtube" />
+    <h1>YouTube </h1>
+  </a>
 </Header>
 <section class="searchKeyWords">
-    <input type="text" placeholder="Search..." required />
-    <img src="/public/assets/icon/SearchImage.png" alt="Youtube">
+  <form action="/post/search" method="get">
+    <input
+      class="searchfield"
+      type="text"
+      placeholder="Search..."
+      required
+      name="search"
+    />
+    <button type="submit" class="searchButton fas fa-search">
+    </button>
+  </form>
+
 </section>
