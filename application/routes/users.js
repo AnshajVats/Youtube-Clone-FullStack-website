@@ -21,9 +21,6 @@ router.get("/", function (req, res, next) {
  */
 router.post(
   "/register",
-  checkUsername,
-  checkPassword,
-  checkEmail,
   checkUsernameUnique,
   checkEmailUnique,
   async function (req, res, next) {
