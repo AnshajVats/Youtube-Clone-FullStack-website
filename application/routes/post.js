@@ -2,7 +2,11 @@ const express = require("express");
 const router = express.Router();
 const multer = require("multer");
 const { isLoggedIn } = require("../middleware/auth");
-const { getPostById, makeThumbnail } = require("../middleware/post");
+const {
+  getPostById,
+  makeThumbnail,
+  getCommentsByPostId,
+} = require("../middleware/post");
 const db = require("../conf/database");
 
 const storage = multer.diskStorage({
@@ -62,12 +66,17 @@ router.post(
 );
 
 /* Get the viewPost */
-router.get("/:id(\\d+)", getPostById, function (req, res, next) {
-  res.render("viewPost", {
-    title: "View Post",
-    CSS: ["viewPost.css"],
-  });
-});
+router.get(
+  "/:id(\\d+)",
+  getPostById,
+  getCommentsByPostId,
+  function (req, res, next) {
+    res.render("viewPost", {
+      title: "View Post",
+      CSS: ["viewPost.css"],
+    });
+  }
+);
 
 //localhost:3000/post/search?searchterm=term
 router.get("/search", async function (req, res, next) {

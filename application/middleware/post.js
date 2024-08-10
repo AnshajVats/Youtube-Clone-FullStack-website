@@ -27,13 +27,14 @@ module.exports = {
 
   getPostById: async function (req, res, next) {
     const postId = req.params.id;
-    const sqlStr = `select p.id, p.title, p.description, p.created_at, p.video, u.username
+    const sqlStr = `select p.id, p.title, p.description, p.created_at, p.video, u.username,
+     (select count(*) from likes where fk_post_id = ?) as likes
     FROM posts p
     join users u
     on u.id = p.fk_user_id
     where p.id = ?;`;
     try {
-      const [rows, _] = await db.execute(sqlStr, [postId]);
+      const [rows, _] = await db.execute(sqlStr, [postId, postId]);
       const currentPost = rows[0];
       if (!currentPost) {
         req.flash("error", "Post does not exist");
@@ -52,6 +53,20 @@ module.exports = {
 
   getCommentsByPostId: async function (req, res, next) {
     const postId = req.params.id;
+    try {
+      const [comments, _] = await db.query(
+        `SELECT c.id, c.text, c.created_at, u.username
+       FROM comments c
+       JOIN users u ON u.id = c.fk_user_id
+       WHERE c.fk_post_id = ?
+       ORDER BY c.created_at DESC;`,
+        [postId]
+      );
+      res.locals.comments = comments;
+      next();
+    } catch (error) {
+      next(error);
+    }
   },
   getRecentPost: async function (req, res, next) {
     try {

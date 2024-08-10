@@ -11,10 +11,10 @@
         <h2>{{currentPost.username}}</h2>
       </div>
       <div class="buttonContainer">
-        <button id="likeToggle" type="submit">
+        <button id="likeToggle" type="submit" data-postid="{{currentPost.id}}">
           <img src="/public/assets/icon/Like.svg" alt="Like Svg">
           <p>100</p>
-        </button>
+        </img>
       </div>
       <div class="shareContianer">
         <button type="submit" id="shareToggle">
@@ -33,58 +33,17 @@
   </div>
 </article>
 <div class="commentSection">
-  <h2>2,329 Comments</h2>
-  <div class="comment">
-    <div class="author">
-      <img src="/public/assets/Logo/FirstLogo.png" alt="comment logo" />
-    </div>
-    <div class="commentDetails">
-      <h3>Author Name</h3>
-      <p class="commentText">Comment: This is a great video</p>
-      <div class="commentActions">
-        <p>478 Likes</p>
-        <p>Reply</p>
-      </div>
+  <div class="commentHeader">
+    <div class="commentInputContainer">
+      <textarea id="commentInput" placeholder="Add a comment..."></textarea>
+      <button id="submitComment" class="comment-box-button" data-postid="{{currentPost.id}}">
+        <i class="fa fa-paper-plane" aria-hidden="true"></i>
+        Post
+      </button>
     </div>
   </div>
-  <div class="comment">
-    <div class="author">
-      <img src="/public/assets/Logo/FirstLogo.png" alt="comment logo" />
-    </div>
-    <div class="commentDetails">
-      <h3>Author Name</h3>
-      <p class="commentText">Comment: This is a great video</p>
-      <div class="commentActions">
-        <p>478 Likes</p>
-        <p>Reply</p>
-      </div>
-    </div>
-  </div>
-  <div class="comment">
-    <div class="author">
-      <img src="/public/assets/Logo/FirstLogo.png" alt="comment logo" />
-    </div>
-    <div class="commentDetails">
-      <h3>Author Name</h3>
-      <p class="commentText">Comment: This is a great video</p>
-      <div class="commentActions">
-        <p>478 Likes</p>
-        <p>Reply</p>
-      </div>
-    </div>
-  </div>
-  <div class="comment">
-    <div class="author">
-      <img src="/public/assets/Logo/FirstLogo.png" alt="comment logo" />
-    </div>
-    <div class="commentDetails">
-      <h3>Author Name</h3>
-      <p class="commentText">Comment: This is a great video</p>
-      <div class="commentActions">
-        <p>478 Likes</p>
-        <p>Reply</p>
-      </div>
-    </div>
+  <div class="commentList" id="commentList">
+    <!-- Comments will be dynamically added here -->
   </div>
 </div>
 

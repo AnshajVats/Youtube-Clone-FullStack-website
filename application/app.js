@@ -12,6 +12,7 @@ const flash = require("express-flash");
 const postRouter = require("./routes/post");
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
+const commentRouter = require("./routes/comment");
 const { time } = require("console");
 
 const sessionStore = new MySQLStore(
@@ -85,7 +86,7 @@ app.use("/public", express.static(path.join(__dirname, "public")));
 app.use("/", indexRouter); // route middleware from ./routes/index.js
 app.use("/users", usersRouter); // route middleware from ./routes/users.js
 app.use("/post", postRouter); // route middleware from ./routes/post.js
-
+app.use("/comments", commentRouter); // route middleware from ./routes/comment.js
 /**
  * Catch all route, if we get to here then the
  * resource requested could not be found.
