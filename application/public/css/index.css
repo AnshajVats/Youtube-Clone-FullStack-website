@@ -65,7 +65,7 @@ header h1 {
     grid-column: span 2;
 }
 
-.searchfield {
+.searchterm {
     width: 300px;
     height: 30px;
     box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);

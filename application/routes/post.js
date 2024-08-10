@@ -70,7 +70,33 @@ router.get("/:id(\\d+)", getPostById, function (req, res, next) {
 });
 
 //localhost:3000/post/search?searchterm=term
-router.get("/search", function (req, res, next) {});
+router.get("/search", async function (req, res, next) {
+  try {
+    const searchterm = req.query.searchterm;
+    const [result, _] = await db.execute(
+      `SELECT id, p.title, p.description, p.thumbnail, CONCAT_WS(" ", p.title, p.description) as haystack
+from posts p
+having haystack like ?;`,
+      [`%${searchterm}%`]
+    );
+    if (result.length) {
+      res.locals.posts = result;
+      res.render("index", {
+        title: "Youtube",
+        name: "Anshaj vats",
+        js: ["index.js"],
+        CSS: ["index.css"],
+        searchterm,
+      });
+    } else {
+      req.flash("error", "No such post found, do you want to create one?");
+      res.redirect("/post");
+    }
+  } catch (error) {
+    console.log(error);
+    next(error);
+  }
+});
 
 router.post("/likes/:id(\\d+)", isLoggedIn, function (req, res, next) {});
 

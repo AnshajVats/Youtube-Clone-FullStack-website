@@ -7,11 +7,12 @@
 <section class="searchKeyWords">
   <form action="/post/search" method="get">
     <input
-      class="searchfield"
+      class="searchterm"
       type="text"
       placeholder="Search..."
       required
-      name="search"
+      name="searchterm"
+      value="{{searchterm}}"
     />
     <button type="submit" class="searchButton fas fa-search">
     </button>
