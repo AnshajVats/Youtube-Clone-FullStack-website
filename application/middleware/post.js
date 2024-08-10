@@ -85,5 +85,25 @@ module.exports = {
   },
   getPostByuserId: async function (req, res, next) {
     const userId = req.params.id;
+
+    const sqlStr = `SELECT p.id, p.title, p.created_at, p.thumbnail, u.username
+                  FROM posts p
+                  JOIN users u ON u.id = p.fk_user_id
+                  WHERE p.fk_user_id = ?
+                  ORDER BY p.created_at DESC;`;
+
+    try {
+      const [posts, _] = await db.execute(sqlStr, [userId]);
+
+      if (posts.length === 0) {
+        req.flash("info", "This user has not posted any videos yet.");
+      }
+
+      res.locals.userPosts = posts;
+      next();
+    } catch (error) {
+      console.error("Error fetching user's posts:", error);
+      next(error);
+    }
   },
 };

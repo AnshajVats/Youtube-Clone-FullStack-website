@@ -9,6 +9,24 @@
   </div>
   <section>
     <h3>Posted Videos</h3>
-    <!-- Add code to display the user's posted videos here -->
+    {{#if userPosts.length}}
+      <div class="posted-videos">
+        {{#each userPosts}}
+          <div class="video-card">
+            <a href="/post/{{this.id}}">
+              <img
+                src="/public/{{this.thumbnail}}"
+                alt="{{this.title}}"
+                class="video-thumbnail"
+              />
+              <p class="video-title">{{this.title}}</p>
+              <p class="video-date">{{formatDate this.created_at}}</p>
+            </a>
+          </div>
+        {{/each}}
+      </div>
+    {{else}}
+      <p>This user hasn't posted any videos yet.</p>
+    {{/if}}
   </section>
 </main>

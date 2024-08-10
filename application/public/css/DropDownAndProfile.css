@@ -94,3 +94,23 @@
 .profile-container section {
     margin-top: 30px;
 }
+
+.videoContainer {
+    display: grid;
+    grid-template-areas: "mainContent";
+
+}
+
+.video-card {
+    display: grid;
+    grid-template-areas: "mainContent";
+
+}
+
+.posted-videos {
+    grid-area: mainContent;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-auto-rows: 250px;
+    gap: 2em;
+}

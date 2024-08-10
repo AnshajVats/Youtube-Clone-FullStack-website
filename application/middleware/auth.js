@@ -9,10 +9,13 @@ module.exports = {
   },
   isMyProfile: function (req, res, next) {
     const userId = req.params.id;
-    if (req.session.user.userId === userId) {
+    if (req.session.user.userId == userId) {
       next();
     } else {
-      req.flash("error", "You do not have permission to view this page");
+      req.flash(
+        "error",
+        "You do not have permission to view this page isMyProfile"
+      );
       return res.redirect("/");
     }
   },

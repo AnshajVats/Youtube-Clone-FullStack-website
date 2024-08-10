@@ -3,6 +3,7 @@ var router = express.Router();
 const bcrypt = require("bcrypt");
 const db = require("../conf/database");
 const { isLoggedIn, isMyProfile } = require("../middleware/auth");
+const { getPostByuserId } = require("../middleware/post");
 const {
   checkUsername,
   checkPassword,
@@ -76,7 +77,11 @@ router.post("/login", async function (req, res, next) {
         email: user.email,
       };
       req.flash("success", `${user.username} is now logged in`);
-      return res.redirect("/");
+      console.log(req.session);
+      return req.session.save((err) => {
+        if (err) next(err);
+        res.redirect("/");
+      });
     }
   } catch (error) {
     console.log(error);
@@ -97,8 +102,14 @@ router.post("/logout", function (req, res, next) {
 /**
  * View profile
  */
-router.get("/:id(\\d+)", isLoggedIn, isMyProfile, function (req, res, next) {
-  res.render("profile");
-});
+router.get(
+  "/:id(\\d+)",
+  isLoggedIn,
+  isMyProfile,
+  getPostByuserId,
+  function (req, res, next) {
+    res.render("profile");
+  }
+);
 
 module.exports = router;
