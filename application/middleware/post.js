@@ -62,7 +62,7 @@ module.exports = {
        ORDER BY c.created_at DESC;`,
         [postId]
       );
-      res.locals.comments = comments;
+      res.locals.currentPost.comments = comments;
       next();
     } catch (error) {
       next(error);
