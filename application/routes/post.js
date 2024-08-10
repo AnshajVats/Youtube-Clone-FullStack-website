@@ -107,7 +107,60 @@ having haystack like ?;`,
   }
 });
 
-router.post("/likes/:id(\\d+)", isLoggedIn, function (req, res, next) {});
+router.post("/likes/:id(\\d+)", async function (req, res, next) {
+  try {
+    if (!req.session.user) {
+      res
+        .status(401)
+        .json({ success: false, message: "Unauthorized, Must be logged in" });
+      return;
+    }
+    const postId = req.params.id;
+    const userId = req.session.user.userId;
+    var [result, _] = await db.query(
+      `select * from likes where fk_post_id=? AND fk_user_id=?`,
+      [postId, userId]
+    );
+    if (result.length == 0) {
+      var [insertResult, _] = await db.query(
+        `insert into likes (fk_post_id, fk_user_id) values (?, ?)`,
+        [postId, userId]
+      );
+      if (insertResult.affectedRows == 1) {
+        return res
+          .json({
+            success: true,
+            message: "like saved",
+            isLiked: true,
+            likeCount: 1,
+          })
+          .status(201);
+      } else {
+        return res.json({ success: false, message: "falied to save like" });
+      }
+    } else if (result.length == 1) {
+      var [insertResult, _] = await db.query(
+        `delete from likes where fk_post_id=? AND fk_user_id=? `,
+        [postId, userId]
+      );
+      if (insertResult.affectedRows == 1) {
+        return res
+          .json({
+            success: true,
+            message: "like removed",
+            isLiked: false,
+            likeCount: 0,
+          })
+          .status(201);
+      }
+    } else {
+      next("something old happened");
+    }
+    res.json(postId);
+  } catch (error) {
+    next(error);
+  }
+});
 
 router.delete("/:id(\\d+)", async function (req, res, next) {});
 

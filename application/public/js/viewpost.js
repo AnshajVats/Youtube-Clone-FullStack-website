@@ -51,6 +51,33 @@ if (commentButton) {
 
 if (likeButton) {
   likeButton.addEventListener("click", async function (ev) {
-    console.log(ev);
+    try {
+      const postId = ev.currentTarget.dataset.postid;
+      var resp = await fetch(`/post/likes/${postId}`, {
+        method: "POST",
+      });
+      var data = await resp.json();
+      console.log(data);
+
+      if (data.success) {
+        var lb = document.getElementById("likeToggle");
+        if (data.isLiked) {
+          lb.classList.add("fa-thumbs-down");
+          lb.classList.remove("fa-thumbs-up");
+        } else {
+          lb.classList.add("fa-thumbs-up");
+          lb.classList.remove("fa-thumbs-down");
+        }
+        const likeCountElement = document.getElementById("likeCount");
+        let currentCount = parseInt(likeCountElement.textContent);
+        likeCountElement.textContent = data.isLiked
+          ? currentCount + 1
+          : currentCount - 1;
+      } else {
+        alert(data.message);
+      }
+    } catch (error) {
+      console.error(error);
+    }
   });
 }

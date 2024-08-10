@@ -317,3 +317,7 @@ body {
 #likeToggle.liked img {
     filter: brightness(0) invert(1);
 }
+
+.buttonContainer p {
+    padding: 5px 10px;
+}

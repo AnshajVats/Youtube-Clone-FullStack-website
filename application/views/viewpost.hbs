@@ -11,10 +11,8 @@
         <h2>{{currentPost.username}}</h2>
       </div>
       <div class="buttonContainer">
-        <button id="likeToggle" type="submit" data-postid="{{currentPost.id}}">
-          <img src="/public/assets/icon/Like.svg" alt="Like Svg">
-          <p>100</p>
-        </img>
+        <button id="likeToggle" type="submit" class="fa fa-thumbs-up" data-postid="{{currentPost.id}}">
+          <p id="likeCount">{{currentPost.likes}}</p>
       </div>
       <div class="shareContianer">
         <button type="submit" id="shareToggle">
