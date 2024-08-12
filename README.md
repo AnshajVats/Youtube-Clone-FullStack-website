@@ -1,18 +1,6 @@
-# CSC 317 Course Project
+# Youtube Clone
 
-## Purpose
-
-The purpose of this repository is to store all the code for your web application. This also includes the history of all commits made and who made them. Only code submitted on the master branch will be graded.
-
-Please follow the instructions below and fill in the information requested when prompted.
-
-## Student Information
-
-|               |  Information   |
-| :-----------: | :------------: |
-| Student Name  |  Anshaj Vats   |
-|  Student ID   |   923760991    |
-| Student Email | avats@sfsu.edu |
+Please follow the instructions below to run the website.
 
 # Build/Run Instructions
 
